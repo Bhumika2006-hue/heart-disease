@@ -30,12 +30,12 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     message: str = Field(..., min_length=1, max_length=4000)
     history: list[ChatMessage] = Field(default_factory=list)
-    provider: Literal["grok", "oss"] = "grok"
+    provider: Literal["groq", "grok", "oss"] = "groq"
     prediction: Optional[PredictionResult] = None
 
 
 class ChatResponse(BaseModel):
     reply: str
-    provider: Literal["grok", "oss"]
+    provider: Literal["groq", "grok", "oss"]
     model: str
     disclaimer: str

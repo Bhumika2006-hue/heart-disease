@@ -22,7 +22,7 @@ export type ChatMessage = {
 
 export type ChatResponse = {
   reply: string;
-  provider: 'grok' | 'oss';
+  provider: 'groq' | 'grok' | 'oss';
   model: string;
   disclaimer: string;
 };
@@ -65,7 +65,7 @@ export async function chat(
   params: {
     message: string;
     history: ChatMessage[];
-    provider: 'grok' | 'oss';
+    provider: 'groq' | 'grok' | 'oss';
     prediction?: PredictionResult;
   },
 ): Promise<ChatResponse> {

@@ -29,10 +29,10 @@ The ML model is loaded from **Hugging Face model repo**: `Arko007/cardiac-mri-cn
 
 **Chat providers (OpenAI-compatible)**
 
-**Grok**
-- `GROK_API_KEY` (required for `provider=grok`)
-- `GROK_BASE_URL` (default: `https://api.x.ai/v1`)
-- `GROK_MODEL` (default: `grok-2-latest`)
+**Groq**
+- `GROQ_API_KEY` (required for `provider=groq`)
+- `GROQ_BASE_URL` (default: `https://api.groq.com/openai/v1`)
+- `GROQ_MODEL` (default: `llama-3.1-70b-versatile`)
 
 **GPT 120B OSS**
 - `OSS_API_KEY` (or `OPENAI_API_KEY`) (required for `provider=oss`)

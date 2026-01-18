@@ -9,7 +9,7 @@ function safeTrim(s: string) {
 }
 
 export default function ChatAssistant({ prediction }: { prediction: PredictionResult | null }) {
-  const [provider, setProvider] = useState<'grok' | 'oss'>('grok');
+  const [provider, setProvider] = useState<'groq' | 'oss'>('groq');
   const [draft, setDraft] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,10 +102,10 @@ export default function ChatAssistant({ prediction }: { prediction: PredictionRe
             <select
               className="select"
               value={provider}
-              onChange={(e) => setProvider(e.target.value as 'grok' | 'oss')}
+              onChange={(e) => setProvider(e.target.value as 'groq' | 'oss')}
               aria-label="AI provider"
             >
-              <option value="grok">Grok API</option>
+              <option value="groq">Groq API</option>
               <option value="oss">GPT 120B OSS</option>
             </select>
             <button className="button" onClick={clear} disabled={loading}>

@@ -15,12 +15,18 @@ MEDICAL_DISCLAIMER = (
 
 
 def _client_for(provider: str) -> tuple[OpenAI, str]:
-    if provider == "grok":
-        api_key = os.getenv("GROK_API_KEY")
+    if provider in {"groq", "grok"}:
+        # Primary: Groq (GROQ_*). Backwards-compatible alias: GROK_*.
+        api_key = os.getenv("GROQ_API_KEY") or os.getenv("GROK_API_KEY")
         if not api_key:
-            raise RuntimeError("GROK_API_KEY is not set")
-        base_url = os.getenv("GROK_BASE_URL", "https://api.x.ai/v1")
-        model = os.getenv("GROK_MODEL", "grok-2-latest")
+            raise RuntimeError("GROQ_API_KEY is not set")
+
+        base_url = (
+            os.getenv("GROQ_BASE_URL")
+            or os.getenv("GROK_BASE_URL")
+            or "https://api.groq.com/openai/v1"
+        )
+        model = os.getenv("GROQ_MODEL") or os.getenv("GROK_MODEL") or "llama-3.1-70b-versatile"
         return OpenAI(api_key=api_key, base_url=base_url), model
 
     if provider == "oss":
