@@ -26,7 +26,7 @@ def _client_for(provider: str) -> tuple[OpenAI, str]:
             or os.getenv("GROK_BASE_URL")
             or "https://api.groq.com/openai/v1"
         )
-        model = os.getenv("GROQ_MODEL") or os.getenv("GROK_MODEL") or "llama-3.1-70b-versatile"
+        model = os.getenv("GROQ_MODEL") or os.getenv("GROK_MODEL") or "openai/gpt-oss-120b"
         return OpenAI(api_key=api_key, base_url=base_url), model
 
     if provider == "oss":

@@ -32,7 +32,7 @@ The ML model is loaded from **Hugging Face model repo**: `Arko007/cardiac-mri-cn
 **Groq**
 - `GROQ_API_KEY` (required for `provider=groq`)
 - `GROQ_BASE_URL` (default: `https://api.groq.com/openai/v1`)
-- `GROQ_MODEL` (default: `llama-3.1-70b-versatile`)
+- `GROQ_MODEL` (default: `openai/gpt-oss-120b`)
 
 **GPT 120B OSS**
 - `OSS_API_KEY` (or `OPENAI_API_KEY`) (required for `provider=oss`)
