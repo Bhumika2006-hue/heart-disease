@@ -4,18 +4,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 0;
 }
 
 .backgroundAnimation {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.08;
+  opacity: 0.12;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
 
 .queueScene {
@@ -124,32 +125,60 @@
   border-radius: 12px;
 }
 
+.topNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem;
+}
+
+.aboutButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #07263a;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(11, 63, 92, 0.2);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.aboutButton:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .chatContainer {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 900px;
-  height: 85vh;
+  max-width: 1200px;
+  height: 90vh;
   min-height: 500px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(11, 63, 92, 0.18);
-  border-radius: 24px;
-  box-shadow: 0 24px 64px rgba(2, 24, 36, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(11, 63, 92, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(2, 24, 36, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
 .chatHeader {
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(11, 63, 92, 0.12);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.5));
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(11, 63, 92, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.4));
 }
 
 .chatTitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
   color: #07263a;
@@ -157,9 +186,9 @@
 }
 
 .chatSubtitle {
-  font-size: 14px;
-  color: rgba(7, 38, 58, 0.7);
-  margin: 0.5rem 0 0;
+  font-size: 13px;
+  color: rgba(7, 38, 58, 0.65);
+  margin: 0.25rem 0 0;
 }
 
 .chatLog {
@@ -169,11 +198,17 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.chatLog.dragOver {
+  background: rgba(58, 190, 255, 0.05);
 }
 
 .message {
   display: flex;
-  max-width: 80%;
+  max-width: 75%;
   animation: messageSlideIn 0.3s ease-out;
 }
 
@@ -198,21 +233,30 @@
 
 .messageContent {
   padding: 0.875rem 1.125rem;
-  border-radius: 18px;
-  line-height: 1.5;
+  border-radius: 16px;
+  line-height: 1.6;
   font-size: 15px;
   word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.messageImage {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
 .messageUser .messageContent {
-  background: linear-gradient(135deg, rgba(58, 190, 255, 0.5), rgba(255, 255, 255, 0.85));
-  border: 1px solid rgba(34, 139, 230, 0.2);
+  background: linear-gradient(135deg, rgba(58, 190, 255, 0.4), rgba(255, 255, 255, 0.8));
+  border: 1px solid rgba(34, 139, 230, 0.15);
   color: #04324a;
 }
 
 .messageAssistant .messageContent {
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(11, 63, 92, 0.15);
+  border: 1px solid rgba(11, 63, 92, 0.12);
   color: #07263a;
 }
 
@@ -254,8 +298,14 @@
 
 .chatInputContainer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(11, 63, 92, 0.12);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.85));
+  border-top: 1px solid rgba(11, 63, 92, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
+  transition: all 0.2s ease;
+}
+
+.chatInputContainer.dragOver {
+  background: rgba(58, 190, 255, 0.1);
+  border-top-color: rgba(58, 190, 255, 0.4);
 }
 
 .error {
@@ -314,13 +364,13 @@
   padding: 0.75rem;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(11, 63, 92, 0.2);
-  border-radius: 18px;
+  border-radius: 16px;
   transition: all 0.2s ease;
 }
 
 .inputWrapper:focus-within {
-  border-color: rgba(34, 139, 230, 0.5);
-  box-shadow: 0 0 0 3px rgba(34, 139, 230, 0.15);
+  border-color: rgba(34, 139, 230, 0.4);
+  box-shadow: 0 0 0 3px rgba(34, 139, 230, 0.1);
 }
 
 .attachButton,
@@ -331,7 +381,7 @@
   width: 36px;
   height: 36px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
@@ -348,12 +398,12 @@
 }
 
 .sendButton {
-  background: linear-gradient(135deg, rgba(58, 190, 255, 0.6), rgba(255, 255, 255, 0.7));
+  background: linear-gradient(135deg, rgba(58, 190, 255, 0.5), rgba(255, 255, 255, 0.7));
   color: #06283c;
 }
 
 .sendButton:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(58, 190, 255, 0.75), rgba(255, 255, 255, 0.8));
+  background: linear-gradient(135deg, rgba(58, 190, 255, 0.65), rgba(255, 255, 255, 0.8));
   transform: scale(1.05);
 }
 
@@ -385,18 +435,32 @@
 .hint {
   margin: 0.75rem 0 0;
   font-size: 12px;
-  color: rgba(7, 38, 58, 0.6);
+  color: rgba(7, 38, 58, 0.55);
   text-align: center;
+}
+
+@media (min-width: 1400px) {
+  .chatContainer {
+    max-width: 1400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .chatContainer {
+    max-width: 95%;
+  }
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 1rem 0.5rem;
+    padding: 0;
   }
 
   .chatContainer {
-    height: 90vh;
-    border-radius: 16px;
+    height: 92vh;
+    border-radius: 12px;
+    border-left: none;
+    border-right: none;
   }
 
   .chatHeader {
@@ -404,7 +468,7 @@
   }
 
   .chatTitle {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .chatLog {
@@ -412,11 +476,15 @@
   }
 
   .message {
-    max-width: 90%;
+    max-width: 85%;
+  }
+
+  .topNav {
+    padding: 1rem;
   }
 
   .backgroundAnimation {
-    opacity: 0.05;
+    opacity: 0.06;
   }
 
   .people {
@@ -437,7 +505,8 @@
 
   .attachButton:hover,
   .sendButton:hover,
-  .removeImageButton:hover {
+  .removeImageButton:hover,
+  .aboutButton:hover {
     transform: none;
   }
 }

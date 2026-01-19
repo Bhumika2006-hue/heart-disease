@@ -43,6 +43,33 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           Upload your cardiac MRI image and get educational insights powered by AI. 
           Our assistant helps you understand heart health markers in simple, clear language.
         </p>
+
+        <div className={styles.features}>
+          <div className={styles.feature} style={{ animationDelay: '0.1s' }}>
+            <div className={styles.featureIcon}>📷</div>
+            <h3 className={styles.featureTitle}>Upload an MRI</h3>
+            <p className={styles.featureText}>Simply drag, drop, or paste your cardiac MRI image to get started</p>
+          </div>
+
+          <div className={styles.feature} style={{ animationDelay: '0.2s' }}>
+            <div className={styles.featureIcon}>💬</div>
+            <h3 className={styles.featureTitle}>Ask Questions</h3>
+            <p className={styles.featureText}>Chat naturally about your scan and get clear explanations</p>
+          </div>
+
+          <div className={styles.feature} style={{ animationDelay: '0.3s' }}>
+            <div className={styles.featureIcon}>🧠</div>
+            <h3 className={styles.featureTitle}>Understand Results</h3>
+            <p className={styles.featureText}>Learn about heart health markers in plain, easy-to-understand language</p>
+          </div>
+        </div>
+
+        <div className={styles.reassurance}>
+          <p className={styles.reassuranceText}>
+            🔒 Your images are processed privately and not stored permanently
+          </p>
+        </div>
+
         <p className={styles.disclaimer}>
           This tool is designed for educational purposes only. It provides supportive 
           information and is not a medical diagnosis. Always consult with qualified 
