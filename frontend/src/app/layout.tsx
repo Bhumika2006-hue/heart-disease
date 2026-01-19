@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 
-import BackgroundHearts from '@/components/BackgroundHearts';
-
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Cardiac MRI Classifier',
-  description: 'Cardiac MRI classification with AI-assisted medical guidance.',
+  title: 'Heart Health AI Assistant',
+  description: 'Get educational insights from your cardiac MRI scans with our AI-powered assistant.',
   icons: {
     icon: '/favicon.svg',
   },
@@ -20,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <BackgroundHearts />
         <div className="appShell">{children}</div>
       </body>
     </html>
