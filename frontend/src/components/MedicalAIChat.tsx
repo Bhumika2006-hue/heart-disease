@@ -283,6 +283,17 @@ export default function MedicalAIChat() {
         </div>
       </div>
 
+      <div className={styles.floatingIcons}>
+        <div className={styles.floatingIcon}>🏥</div>
+        <div className={styles.floatingIcon}>🩺</div>
+        <div className={styles.floatingIcon}>💊</div>
+        <div className={styles.floatingIcon}>🚑</div>
+        <div className={styles.floatingIcon}>💉</div>
+        <div className={styles.floatingIcon}>🧬</div>
+        <div className={styles.floatingIcon}>🌡️</div>
+        <div className={styles.floatingIcon}>🩹</div>
+      </div>
+
       <div className={styles.topNav}>
         <button
           className={styles.aboutButton}

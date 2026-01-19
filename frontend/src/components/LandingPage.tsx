@@ -9,6 +9,17 @@ interface LandingPageProps {
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
   return (
     <div className={styles.container}>
+      <div className={styles.floatingIcons}>
+        <div className={styles.floatingIcon}>🏥</div>
+        <div className={styles.floatingIcon}>🩺</div>
+        <div className={styles.floatingIcon}>💊</div>
+        <div className={styles.floatingIcon}>🚑</div>
+        <div className={styles.floatingIcon}>💉</div>
+        <div className={styles.floatingIcon}>🧬</div>
+        <div className={styles.floatingIcon}>🌡️</div>
+        <div className={styles.floatingIcon}>🩹</div>
+      </div>
+
       <div className={styles.robotContainer}>
         <div className={styles.robot}>
           <div className={styles.robotBody}>
