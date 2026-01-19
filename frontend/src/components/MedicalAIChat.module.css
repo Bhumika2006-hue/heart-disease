@@ -240,11 +240,19 @@
   white-space: pre-wrap;
 }
 
+.messageImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 0.75rem;
+}
+
 .messageImage {
+  width: 100% !important;
+  height: auto !important;
   max-width: 100%;
   max-height: 300px;
   border-radius: 8px;
-  margin-bottom: 0.75rem;
   display: block;
 }
 
@@ -330,9 +338,15 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.previewImage {
+.previewImageWrapper {
+  position: relative;
   width: 60px;
   height: 60px;
+}
+
+.previewImage {
+  width: 60px !important;
+  height: 60px !important;
   object-fit: cover;
   border-radius: 8px;
 }

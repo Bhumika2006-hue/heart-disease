@@ -24,7 +24,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
             <h3 className={styles.heading}>What This App Does</h3>
             <p className={styles.text}>
               This app helps you understand cardiac MRI images using AI. You can upload your MRI scan
-              and get clear, simple explanations about what the image shows. It's designed to make
+              and get clear, simple explanations about what the image shows. It&apos;s designed to make
               heart health information easier to understand.
             </p>
           </section>
@@ -119,7 +119,7 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
             <div className={styles.faqItem}>
               <h4 className={styles.faqQuestion}>What should I do if the AI flags a concern?</h4>
               <p className={styles.faqAnswer}>
-                If the AI mentions anything concerning, don't panic. Take note of what it says and
+                If the AI mentions anything concerning, don&apos;t panic. Take note of what it says and
                 discuss it with your doctor. This app is a starting point for conversation, not a
                 final word on your health.
               </p>

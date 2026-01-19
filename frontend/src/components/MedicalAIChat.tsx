@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from './MedicalAIChat.module.css';
 import AboutModal from './AboutModal';
 import { ChatMessage, PredictionResult, chat, classifyImage } from '@/lib/api';
@@ -311,7 +312,16 @@ export default function MedicalAIChat() {
             <div key={idx} className={`${styles.message} ${m.role === 'user' ? styles.messageUser : styles.messageAssistant}`}>
               <div className={styles.messageContent}>
                 {m.imageData && (
-                  <img src={m.imageData} alt="Uploaded MRI" className={styles.messageImage} />
+                  <div className={styles.messageImageWrapper}>
+                    <Image
+                      src={m.imageData}
+                      alt="Uploaded MRI"
+                      className={styles.messageImage}
+                      width={300}
+                      height={300}
+                      unoptimized
+                    />
+                  </div>
                 )}
                 {m.content}
               </div>
@@ -335,7 +345,16 @@ export default function MedicalAIChat() {
           
           {imagePreview && (
             <div className={styles.imagePreviewChip}>
-              <img src={imagePreview} alt="Selected MRI" className={styles.previewImage} />
+              <div className={styles.previewImageWrapper}>
+                <Image
+                  src={imagePreview}
+                  alt="Selected MRI"
+                  className={styles.previewImage}
+                  width={100}
+                  height={100}
+                  unoptimized
+                />
+              </div>
               <button
                 className={styles.removeImageButton}
                 onClick={() => {
