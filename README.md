@@ -1,3 +1,13 @@
+---
+license: apache-2.0
+title: Cardiac MRI Backend
+sdk: docker
+emoji: 🏃
+colorFrom: blue
+colorTo: indigo
+pinned: false
+short_description: FastAPI backend for Cardiac MRI classification.
+---
 # Cardiac MRI Classifier Web App (Client Deployment)
 
 This repository contains a production-oriented **multi-user web app**:
