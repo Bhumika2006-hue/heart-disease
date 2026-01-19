@@ -100,7 +100,10 @@ class ModelService:
         model = models.densenet169(weights=None)
         model.classifier = nn.Linear(model.classifier.in_features, 2)
 
-        checkpoint = torch.load(ckpt_path, map_location="cpu")
+        # PyTorch 2.6+ enforces weights_only=True by default for security.
+        # We explicitly set weights_only=False for loading model checkpoints
+        # that may contain optimizer states or other pickle objects.
+        checkpoint = torch.load(ckpt_path, map_location="cpu", weights_only=False)
         state_dict = checkpoint.get("model_state_dict", checkpoint)
         model.load_state_dict(state_dict, strict=False)
 
