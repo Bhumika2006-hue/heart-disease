@@ -51,6 +51,7 @@ def root() -> dict[str, Any]:
 
 
 @app.get("/health")
+@app.head("/health")
 def health() -> dict[str, Any]:
     return {
         "status": "ok",
